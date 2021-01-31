@@ -1,0 +1,41 @@
+{
+        "szgjcs": "",
+        "szcs": "",
+        "szgj": "",
+        "zgfxdq": "0", # 是否在中高风险地区
+        "mjry": "0", # 密接人员
+        "csmjry": "0", # 去过疫情场所
+        "tw": "2", # 体温 (36℃->0, 36℃到36.5℃->1, 36.5℃到36.9℃->2, 36.9℃到37℃.3->3, 37.3℃到38℃->4, 38℃到38.5℃->5, 38.5℃到39℃->6, 39℃到40℃->7, 40℃以上->8)
+        "sfcxtz": "0", # 是否出现体症
+        "sfjcbh": "0", # 是否接触病患
+        "sfcxzysx": "0", # 是否有特别情况：否0是1
+        "qksm": "", # 情况说明
+        "sfyyjc": "0",
+        "jcjgqr": "0",
+        "remark": "",
+        "sfzx": "0", # 是否在校(0->否, 1->是)
+        "sfjcwhry":"0", # 是否接触武汉人员
+        "sfjchbry":"0", # 是否接触湖北人员
+        "sfcyglq":"0", # 是否处于隔离期
+        "gllx":"",
+        "glksrq":"",
+        "jcbhlx":"",
+        "jcbhrq":"",
+        "bztcyy":"",
+        "sftjhb":"0", # 是否途径武汉
+        "sftjwh":"0", # 是否途径湖北
+        "sfjcjwry":"0", # 是否接境外人员
+        "jcjg":"",
+        "gwszdd":"", # 过往所在地点
+        "sfyqjzgc":"",
+        "jcqzrq":"",
+        "sfjcqz":"",
+        "jrsfqzys":"",
+        "jrsfqzfy":"",
+        "szsqsfybl":"0",
+        "sfsqhzjkk":"",
+        "sqhzjkkys":"",
+        "sfygtjzzfj":"",
+        "gtjzzfjsj":"",
+        "ismoved":"0"
+}

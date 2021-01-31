@@ -4,12 +4,13 @@
 @Author      : NingWang
 @Email       : yogehaoren@gmail.com
 @File        : Utils.py
-@Description : 
+@Description :
 @Version     : 0.1-dev
 @Edited      : Xiaohan
 """
 import requests
 import pickle
+import json
 
 DEFAULT_HEADER = {
     "Accept": "application/json, text/plain, */*",
@@ -40,10 +41,15 @@ SOUTH_UPLOAD_MESSAGE = {
     "address": "陕西省西安市长安区兴隆街道西安电子科技大学长安校区行政辅楼",  # 实际地址
 }
 
+HOME_UPLOAD_MESSAGE = {
+    "address": "山东省青岛市即墨区潮海街道埠惜路金盟山庄",
+    "geo_api_info": "{\"type\":\"complete\",\"position\":{\"Q\":36.405007052952,\"R\":120.51044216579902,\"lng\":120.510442,\"lat\":36.405007},\"location_type\":\"html5\",\"message\":\"Get geolocation success.Convert Success.Get address success.\",\"accuracy\":65,\"isConverted\":true,\"status\":1,\"addressComponent\":{\"citycode\":\"0532\",\"adcode\":\"370215\",\"businessAreas\":[{\"name\":\"即墨\",\"id\":\"370215\",\"location\":{\"Q\":36.388599,\"R\":120.453079,\"lng\":120.453079,\"lat\":36.388599}}],\"neighborhoodType\":\"\",\"neighborhood\":\"\",\"building\":\"\",\"buildingType\":\"\",\"street\":\"流浩河三路\",\"streetNumber\":\"2号\",\"country\":\"中国\",\"province\":\"山东省\",\"city\":\"青岛市\",\"district\":\"即墨区\",\"township\":\"潮海街道\"},\"formattedAddress\":\"山东省青岛市即墨区潮海街道埠惜路金盟山庄\",\"roads\":[],\"crosses\":[],\"pois\":[],\"info\":\"SUCCESS\"}",
+    "area": "山东省 青岛市 即墨区",
+    "province": "山东省",
+    "city": "青岛市",
+}
+
 LOGIN_URL = "https://xxcapp.xidian.edu.cn/uc/wap/login/check"
-
-UPLOAD_URL = "https://xxcapp.xidian.edu.cn/xisuncov/wap/open-report/save"
-
 COOKIE_FILE_NAME = "cookie.txt"
 
 
@@ -76,30 +82,37 @@ def load_cookie_from_file(cookie_file_path: str):
         return pickle.load(f)
 
 
-def load_upload_message_file(file_path: str,location: str):
+def load_upload_message_file(file_path: str, location: str):
     """
     从文件中解析需要提交的信息
     :param file_path: 文件路径
     :return:
     """
     with open(file_path, "r", encoding='utf8') as f:
+        # 这里用eval来处理json，因为josn库无法解析带有注释的json文件
         text = f.read()
+        # upload_message = json.load(f)
         upload_message = eval(text)
-        if location=="s":
+        if location == "s":
             for key, value in SOUTH_UPLOAD_MESSAGE.items():
                 if key not in upload_message:
                     upload_message[key] = value
             return upload_message
-        elif location=="n":
+        elif location == "n":
             for key, value in NORTH_UPLOAD_MESSAGE.items():
+                if key not in upload_message:
+                    upload_message[key] = value
+            return upload_message
+        elif location == "home":
+            for key, value in HOME_UPLOAD_MESSAGE.items():
                 if key not in upload_message:
                     upload_message[key] = value
             return upload_message
 
 
-def upload_ncov_message(cookie,upload_message):
+def upload_ncov_message(url, cookie, upload_message):
     header = dict(DEFAULT_HEADER.items() | UPLOAD_HEADER.items())
-    r = requests.post(UPLOAD_URL,upload_message, cookies=cookie, headers=header,)
+    r = requests.post(url, upload_message, cookies=cookie, headers=header, )
     if r.json()['e'] == 0:
         print("上报成功")
     else:
