@@ -42,8 +42,8 @@ SOUTH_UPLOAD_MESSAGE = {
 }
 
 HOME_UPLOAD_MESSAGE = {
-    "address": "山东省青岛市即墨区潮海街道埠惜路金盟山庄",
-    "geo_api_info": "{\"type\":\"complete\",\"position\":{\"Q\":36.405007052952,\"R\":120.51044216579902,\"lng\":120.510442,\"lat\":36.405007},\"location_type\":\"html5\",\"message\":\"Get geolocation success.Convert Success.Get address success.\",\"accuracy\":65,\"isConverted\":true,\"status\":1,\"addressComponent\":{\"citycode\":\"0532\",\"adcode\":\"370215\",\"businessAreas\":[{\"name\":\"即墨\",\"id\":\"370215\",\"location\":{\"Q\":36.388599,\"R\":120.453079,\"lng\":120.453079,\"lat\":36.388599}}],\"neighborhoodType\":\"\",\"neighborhood\":\"\",\"building\":\"\",\"buildingType\":\"\",\"street\":\"流浩河三路\",\"streetNumber\":\"2号\",\"country\":\"中国\",\"province\":\"山东省\",\"city\":\"青岛市\",\"district\":\"即墨区\",\"township\":\"潮海街道\"},\"formattedAddress\":\"山东省青岛市即墨区潮海街道埠惜路金盟山庄\",\"roads\":[],\"crosses\":[],\"pois\":[],\"info\":\"SUCCESS\"}",
+    "address": "",
+    "geo_api_info": "",
     "area": "山东省 青岛市 即墨区",
     "province": "山东省",
     "city": "青岛市",
