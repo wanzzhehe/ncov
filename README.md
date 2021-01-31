@@ -7,7 +7,7 @@
 相比@anadfox233的版本添加了定时自动填报的功能，添加了南校区的位置信息，改了几个小bug
 
 ## 注意
-本脚本内置了南校区和北校区的经纬度,**默认定位为南校区**
+本脚本内置了南校区和北校区及我家的经纬度,**默认定位为我家（记得去utils里面进行修改），这一步需要自己进行抓包**
 
 > 其他地区, 请提交Issue
 ## 项目依赖
@@ -37,8 +37,18 @@ pip install -r requirements.txt
 ### 上报信息
 
 完整的指令如下：
-   
-`python3 upload.py -u xxx -p xxxxx -l home -t y  -f data/yiqingtong.json -n 1`
+
+```shell
+# 立刻填报疫情通
+python3 upload.py -u xxx -p xxxxx -l home -t y -f data/yiqingtong.json -n 1
+# 立刻填报晨午检
+python3 upload.py -u xxx -p xxxxx -l home -t c -f data/chenwujian.json -n 1
+# 定时填报疫情通
+python3 upload.py -u xxx -p xxxxx -l home -t y -f data/yiqingtong.json -n 0
+# 定时填报晨午检
+python3 upload.py -u xxx -p xxxxx -l home -t c -f data/chenwujian.json -n 0
+```
+
    
 参数详解：
    
@@ -62,49 +72,7 @@ optional arguments:
   -t TYPE, --type TYPE  y for 疫情通, c for 晨午检
 ```
 
-默认情况下进行定时填报，但如果需要立即进行填报，请加入`-n 1`参数，例如：
-```shell script
-python upload.py -n 1 -c cookie路径 -l n -f 上报信息的文件路径 -t
-```
-
 上报信息有2种方式: 
 * 通过学号和密码提交信息, 系统会自动保存cookie到本地，下一次可以通过cookie上传信息 
 * 凭借已经登录后的cookie提交信息(cookie的优先级大于学号密码)
 > **脚本自身不记录任何学号和密码信息**
-
-### 学号密码上报
-
-```shell script
-python upload.py -u 学号 -p 密码 -f 上报信息的文件路径
-```
-
-在不指定`-l`参数时默认上报南校区的GPS位置。
-
-如需指定北校区，请添加`-l n`(north)，即以下命令
-
-```shell script
-python upload.py -u 学号 -p 密码 -l n -f 上报信息的文件路径
-```
-
-### cookie上报
-```shell script
-python upload.py -c cookie路径 -f 上报信息的文件路径
-```
-
-在不指定`-l`参数时默认上报南校区的GPS位置。
-
-如需指定北校区，请添加`-l n`(north)，即以下命令
-
-```shell script
-python upload.py -c cookie路径 -l n -f 上报信息的文件路径
-```
-
-## 示例
-
-### 用户名上报
-
-![用户名上报](https://ning-wang.oss-cn-beijing.aliyuncs.com/blog-imags/用户名上报.gif)
-
-### cookie上报
-
-![cookie上报](https://ning-wang.oss-cn-beijing.aliyuncs.com/blog-imags/cookie上报.gif)
