@@ -51,9 +51,9 @@ python3 upload.py -u xxx -p xxxxx -l home -t y -f data/yiqingtong.json
 python3 upload.py -u xxx -p xxxxx -l home -t c -f data/chenwujian.json
 ```
 
-   
+
 参数详解：
-   
+
 ```
 usage: upload.py [-h] [-u USERNAME] [-p PASSWORD] [-l LOCATION] [-c COOKIE]
                  [-f MESSAGE_FILE] [-n] [-t TYPE]
@@ -79,3 +79,5 @@ optional arguments:
 * 通过学号和密码提交信息, 系统会自动保存cookie到本地，下一次可以通过cookie上传信息 
 * 凭借已经登录后的cookie提交信息(cookie的优先级大于学号密码)
 > **脚本自身不记录任何学号和密码信息**
+
+>    可使用start.bat按照引导进行操作，**使用疫情通之前请修改utils里home的定位信息**
