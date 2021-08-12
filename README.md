@@ -42,9 +42,9 @@ pip install -r requirements.txt
 
 ```shell
 # 立刻填报疫情通
-python3 upload.py -u xxx -p xxxxx -l home -t y -f data/yiqingtong.json -n 1
+python3 upload.py -u xxx -p xxxxx -l home -t y -f data/yiqingtong.json -n
 # 立刻填报晨午检
-python3 upload.py -u xxx -p xxxxx -l home -t c -f data/chenwujian.json -n 1
+python3 upload.py -u xxx -p xxxxx -l home -t c -f data/chenwujian.json -n
 # 定时填报疫情通
 python3 upload.py -u xxx -p xxxxx -l home -t y -f data/yiqingtong.json
 # 定时填报晨午检
