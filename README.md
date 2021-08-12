@@ -55,8 +55,8 @@ python3 upload.py -u xxx -p xxxxx -l home -t c -f data/chenwujian.json
 参数详解：
    
 ```
-usage: upload.py [-h] [-u USERNAME] [-p PASSWORD] [-l LOCATION] [-c COOKIE] [-f MESSAGE_FILE] [-n NOW]
-                 [-t TYPE]
+usage: upload.py [-h] [-u USERNAME] [-p PASSWORD] [-l LOCATION] [-c COOKIE]
+                 [-f MESSAGE_FILE] [-n] [-t TYPE]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -64,14 +64,15 @@ optional arguments:
                         Student Account Username
   -p PASSWORD, --password PASSWORD
                         Student Account Password
-  -l LOCATION, --location LOCATION 
-                        GPS location, 现在内置了三个位置，-l home是填报我家的位置，-l n代表北校区的位置，-l s代表南校区的位置
+  -l LOCATION, --location LOCATION
+                        GPS location, home for home address, s for south
+                        school, n for north school, default is home
   -c COOKIE, --cookie COOKIE
                         Path to the Cookie file
   -f MESSAGE_FILE, --message_file MESSAGE_FILE
                         Path to the Upload message file
-  -n NOW, --now NOW     -n 1代表立即填报，-n 0代表启动定时任务进行填报
-  -t TYPE, --type TYPE  y for 疫情通, c for 晨午检
+  -n, --now             Update Yiqingtong Right now
+  -t TYPE, --type TYPE  y for yiqingtong, c for chenwujian
 ```
 
 上报信息有2种方式: 
