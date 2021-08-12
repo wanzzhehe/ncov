@@ -8,12 +8,10 @@
 @Version     : 0.1-dev
 @Edited      : Han0nly
 """
-import sys
-import getopt
+
 import argparse
 import os
 import random
-from datetime import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 from utils import Utils
