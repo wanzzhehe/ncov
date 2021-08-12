@@ -110,7 +110,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-f", "--message_file", help='Path to the Upload message file')
     parser.add_argument(
-        "-n", "--now", help='Update Yiqingtong Right now', type=bool, default=False)
+        "-n", "--now", help='Update Yiqingtong Right now', action="store_true")
     parser.add_argument(
         "-t", "--type", help='y for yiqingtong, c for chenwujian', default="y")
 
