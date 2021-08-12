@@ -66,7 +66,9 @@ optional arguments:
                         Student Account Password
   -l LOCATION, --location LOCATION
                         GPS location, home for home address, s for south
-                        school, n for north school, default is home
+                        school, n for north school, default is home, 现在
+                        内置了三个位置，-l home是填报我家的位置，-l n代表北
+                        校区的位置，-l s代表南校区的位置
   -c COOKIE, --cookie COOKIE
                         Path to the Cookie file
   -f MESSAGE_FILE, --message_file MESSAGE_FILE
