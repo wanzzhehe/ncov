@@ -10,6 +10,9 @@ cls
 set CHENWUJIAN=1
 set YIQINGTONG=2
 
+set WORKDIR=%~dp0
+cd /d %WORKDIR%
+
 :START
 echo 1. 晨午晚检
 echo 2. 疫情通
