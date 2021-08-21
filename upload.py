@@ -68,17 +68,17 @@ class ChenWuJian(Xidian):
         morning_hour = random.randint(6, 11)
         morning_minute = random.randint(1, 59)
         print("晨检将会在每天{:0>2d}:{:0>2d}填报".format(morning_hour, morning_minute))
-        chenwuwan_scheduler.add_job(upload_task.upload, 'cron', hour=morning_hour, minute=morning_minute)
+        chenwuwan_scheduler.add_job(upload_task.upload, 'cron', hour=morning_hour, minute=morning_minute, misfire_grace_time=600)
         # 午检
         noon_hour = random.randint(12, 18)
         noon_minute = random.randint(1, 59)
         print("午检将会在每天{:0>2d}:{:0>2d}填报".format(noon_hour, noon_minute))
-        chenwuwan_scheduler.add_job(upload_task.upload, 'cron', hour=noon_hour, minute=noon_minute)
+        chenwuwan_scheduler.add_job(upload_task.upload, 'cron', hour=noon_hour, minute=noon_minute, misfire_grace_time=600)
         # 晚检
         night_hour = random.randint(19, 22)
         night_minute = random.randint(1, 59)
         print("晚检将会在每天{:0>2d}:{:0>2d}填报".format(night_hour, night_minute))
-        chenwuwan_scheduler.add_job(self.upload, 'cron', hour=night_hour, minute=night_minute)
+        chenwuwan_scheduler.add_job(self.upload, 'cron', hour=night_hour, minute=night_minute, misfire_grace_time=600)
         chenwuwan_scheduler.start()
 
 class YiQingTong(Xidian):
